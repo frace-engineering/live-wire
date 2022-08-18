@@ -56,6 +56,9 @@ const staffData = [
     },
     {
         name:"Ipere Desmond Nnaemeka", location:"Abakaliki - GRA service center",staffId:"018",designation:"Op-Tech",age:"36yrs",gender:"Male",nickName:"Onye guy"
+    },
+    {
+        name:"Eze Confidence Oluchi", location:"Abakaliki - GRA service center b/4",staffId:"019",designation:"Marketer",age:"19yrs",gender:"Female",nickName:"Nwayi Ocha"
     }
 
 ]
@@ -64,6 +67,7 @@ const staffData = [
 const text = document.querySelector(".text");
 const element = document.createElement("button");
 const elementText = document.createTextNode("Add");
+const body = document.querySelector("body");
 
 const input = document.createElement("input");
 const tfoot = document.querySelector(".tfoot");
@@ -71,18 +75,16 @@ element.appendChild(elementText);
 tfoot.appendChild(element);
 tfoot.appendChild(input);
 
-
+const template = document.querySelector(".staffData");
 function cloneElement(){
 const template = document.querySelector(".staffData");
 const clone = template.content.cloneNode(true);
 const td = clone.querySelectorAll("td");
 const tbody = document.querySelector("tbody");
-
+const list = document.createElement("li")
+console.log(list.outerHTML);
+list.style.listStyleType = 'decimal';
 const staff = staffData.find(element => input.value === element.staffId);
-if(!staff){
-    alert("This is not our staff");
-    return;
-}
 
 td[0].textContent = staff.name;
 td[1].textContent = staff.staffId;
@@ -99,12 +101,16 @@ function addClone(){
     element.addEventListener("click",()=>{
         let p = document.createElement("p");
         const staff = staffData.find(element => input.value === element.staffId);
-        p.innerText = staff.nickName;
+        if(!staff){
+            alert("This is not our staff");
+        }else{
+            cloneElement();
+            p.innerText = staff.nickName;
+        }
         p.classList.add("peem");
         text.appendChild(p);
         const peem = document.querySelectorAll(".peem");
-        cloneElement();
+        
 })
 }
 addClone();
-
