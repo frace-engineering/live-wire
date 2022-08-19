@@ -82,16 +82,18 @@ const clone = template.content.cloneNode(true);
 const td = clone.querySelectorAll("td");
 const tbody = document.querySelector("tbody");
 const list = document.createElement("li")
-console.log(list.outerHTML);
+// console.log(list.outerHTML);
 list.style.listStyleType = 'decimal';
 const staff = staffData.find(element => input.value === element.staffId);
+// console.log(td[0].outerHTML);
 
-td[0].textContent = staff.name;
-td[1].textContent = staff.staffId;
-td[2].textContent = staff.location;
-td[3].textContent = staff.designation;
-td[4].textContent = staff.age;
-td[5].textContent = staff.gender;
+td[0].appendChild(list);
+td[1].textContent = staff.name;
+td[2].textContent = staff.staffId;
+td[3].textContent = staff.location;
+td[4].textContent = staff.designation;
+td[5].textContent = staff.age;
+td[6].textContent = staff.gender;
 tbody.appendChild(clone);
 input.value = "";
 return;
