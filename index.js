@@ -81,13 +81,11 @@ const template = document.querySelector(".staffData");
 const clone = template.content.cloneNode(true);
 const td = clone.querySelectorAll("td");
 const tbody = document.querySelector("tbody");
-const list = document.createElement("li")
-// console.log(list.outerHTML);
-list.style.listStyleType = 'decimal';
+console.log(staffData.length);
 const staff = staffData.find(element => input.value === element.staffId);
-// console.log(td[0].outerHTML);
 
-td[0].appendChild(list);
+td[0].textContent = 1 + tbody.childElementCount;
+td[0].style.textAlign = "center";
 td[1].textContent = staff.name;
 td[2].textContent = staff.staffId;
 td[3].textContent = staff.location;
@@ -103,6 +101,7 @@ function addClone(){
     element.addEventListener("click",()=>{
         let p = document.createElement("p");
         const staff = staffData.find(element => input.value === element.staffId);
+        
         if(!staff){
             alert("This is not our staff");
         }else{
@@ -116,3 +115,7 @@ function addClone(){
 })
 }
 addClone();
+element.addEventListener('click', ()=>{
+
+})
+
