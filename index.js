@@ -86,6 +86,9 @@ const staff = staffData.find(element => input.value === element.staffId);
 
 td[0].textContent = 1 + tbody.childElementCount;
 td[0].style.textAlign = "center";
+td[0].style.fontSize = "30px";
+td[0].style.backgroundColor = "white";
+td[0].style.borderBottom = "4px solid black";
 td[1].textContent = staff.name;
 td[2].textContent = staff.staffId;
 td[3].textContent = staff.location;
@@ -99,7 +102,11 @@ return;
 
 function addClone(){
     element.addEventListener("click",()=>{
+        let div = document.createElement('div')
         let p = document.createElement("p");
+        div.appendChild(p);
+        console.log(p.innerHTML);
+
         const staff = staffData.find(element => input.value === element.staffId);
         
         if(!staff){
@@ -108,6 +115,7 @@ function addClone(){
             cloneElement();
             p.innerText = staff.nickName;
         }
+        console.log(p.innerHTML);
         p.classList.add("peem");
         text.appendChild(p);
         const peem = document.querySelectorAll(".peem");

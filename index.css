@@ -4,11 +4,11 @@ body{
     display:flex;
     flex-shrink: 1;
 }
+
 table{
     margin:0 auto;
-    border:8px solid blue;
     border-collapse: collapse;
-    width:80%;
+    width:100%;
     cursor: pointer;
     flex-shrink: 1;
 }
@@ -69,6 +69,9 @@ tr:hover{
 }
 .peem:hover{
     background-color: aqua;
+}
+tr:last-of-type{
+    position:relative;
 }
 
 @media only screen and (min-width:576px) {
